@@ -13,7 +13,7 @@ export async function removeExif(
 ): Promise<object> {
 	return exifToolProcess.writeMetadata(
 		filePath,
-		{ all: "" },
+		{ all: "", TaggedDate: "", CreateDate: "", DateTimeOriginal: "", ModifyDate: "", TrackCreateDate: "", TrackModifyDate: "", DateTagged: "" },
 		EXIFTOOL_ARGS_REMOVE_EXIF,
 		false
 	);

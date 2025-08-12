@@ -1,45 +1,25 @@
 # <img src="static/icon.svg" height=26> ExifCleaner
 
-![Version](https://img.shields.io/github/v/release/szTheory/exifcleaner) ![Total Downloads](https://img.shields.io/github/downloads/szTheory/exifcleaner/total)
+![Version](https://img.shields.io/github/v/release/xqk/exifcleaner) ![Total Downloads](https://img.shields.io/github/downloads/xqk/exifcleaner/total)
 
 > Desktop app to clean metadata from images, videos, PDFs, and other files.
-
-![ExifCleaner demo](https://user-images.githubusercontent.com/28652/71770980-f04e8b80-2f2b-11ea-90f1-4393ec57adc0.gif)
 
 ## !!!!! NOTE - UPGRADE TO 3.6.0+ ASAP !!!!!
 
 If you are running a version of ExifCleaner before 3.6.0, upgrade immediately! A security vulnerability was found in exiftool, the command-line application that powers ExifCleaner under the hood, and this was updated in ExifCleaner 3.5.0. There was also an XSS and Electron remote shell vulnerability due to unsanitized HTML output that was fixed in ExifCleaner 3.6.0.
 
-## Benefits
-
-- Fast
-- Drag & Drop
-- Free and open source (MIT)
-- Windows, Mac, and Linux
-- Supports popular image formats such as PNG, JPG, GIF, and TIFF
-- Supports popular video formats such as M4A, MOV, and MP4
-- Supports PDF documents\* (partial, [see discussion](https://github.com/szTheory/exifcleaner/issues/111))
-- Batch-processing
-- Multi-core support
-- Dark mode (automatic)
-- No automatic updates or network traffic
-- Multi-language support
-- Relatively few NPM dependencies (no JS frameworks)
-
 ## Drawbacks
 
 - Executable size `~200MB` (Electron app)
 - Memory usage `~120MB` (Electron app)
-- PDF metadata removal is only partial ([see discussion](https://github.com/szTheory/exifcleaner/issues/111))
-- Does not remove extended filesystem attributes ([see discussion](https://github.com/szTheory/exifcleaner/issues/86))
 
 ## Download and Install
 
 Linux, macOS 10.10+, and Windows 7+ are supported (64-bit only).
 
-- **Linux**: [Download the .AppImage, .deb, or .rpm file](https://github.com/szTheory/exifcleaner/releases/latest)
-- **macOS**: [Download the .dmg file](https://github.com/szTheory/exifcleaner/releases/latest)
-- **Windows**: [Download the .exe file](https://github.com/szTheory/exifcleaner/releases/latest)
+- **Linux**: [Download the .AppImage, .deb, or .rpm file](https://github.com/xqk/exifcleaner/releases/latest)
+- **macOS**: [Download the .dmg file](https://github.com/xqk/exifcleaner/releases/latest)
+- **Windows**: [Download the .exe file](https://github.com/xqk/exifcleaner/releases/latest)
 
 For Linux, The AppImage needs to be [made executable](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80) after download.
 
@@ -51,11 +31,10 @@ paru -S exifcleaner-bin
 
 ## Links
 
-- [Official Website](https://exifcleaner.com)
-- [Download](https://github.com/szTheory/exifcleaner/releases)
-- [Source Code](https://github.com/szTheory/exifcleaner)
-- [Issue Tracker](https://github.com/szTheory/exifcleaner/issues)
-- [Translations file](https://github.com/szTheory/exifcleaner/blob/master/.resources/strings.json)
+- [Download](https://github.com/xqk/exifcleaner/releases)
+- [Source Code](https://github.com/xqk/exifcleaner)
+- [Issue Tracker](https://github.com/xqk/exifcleaner/issues)
+- [Translations file](https://github.com/xqk/exifcleaner/blob/master/.resources/strings.json)
 
 ## Supported File Types
 
@@ -142,7 +121,7 @@ ExifCleaner has the same writer limitations as the underlying `exiftool` it depe
 
 ## Translations
 
-New translations and corrections to existing translations are welcome! See the [Adding a Translation](https://github.com/szTheory/exifcleaner/#adding-a-translation) section if there is a language you would like to add. Here is the current translations status:
+New translations and corrections to existing translations are welcome! See the [Adding a Translation](https://github.com/xqk/exifcleaner/#adding-a-translation) section if there is a language you would like to add. Here is the current translations status:
 
 - Arabic ✅ by [@ZER0-X](https://github.com/ZER0-X)
 - Chinese (Mandarin) ✅ by [MarcusPierce](https://github.com/MarcusPierce)
@@ -179,11 +158,15 @@ On Mac, Linux, and on Windows using the Linux Subsystem for Windows:
 sha512sum ExifCleaner-Setup-3.5.0.exe | cut -f1 -d\ | xxd -r -p | base64
 ```
 
-The output should match the sha512 value in the latest.yml file for the version you downloaded. As of now there is no checksum generated for the Linux RPM version (appears to be an electron-build issue, see [Github issue here](https://github.com/szTheory/exifcleaner/issues/141)).
-
 ## Development
 
 Built with [Electron](https://electronjs.org). Uses [node-exiftool](https://www.npmjs.com/package/node-exiftool) as a wrapper for [Exiftool](https://exiftool.org/) binaries. To see the current list of NPM dependencies, run:
+
+## tips
+
+- Node 15.0.1
+- export ELECTRON_MIRROR="https://mirrors.huaweicloud.com/electron/"
+- 把node_modules中dmg-builder中python路径改为本机自定义安装的python2.7的路径（因为 Mac 已废弃python2.7，找不到/usr/bin/python）
 
 ```bash
 yarn list --production
@@ -194,7 +177,7 @@ yarn list --production
 Clone the repository and cd into the directory.
 
 ```bash
-git clone https://github.com/szTheory/exifcleaner.git
+git clone https://github.com/xqk/exifcleaner.git
 cd exifcleaner
 ```
 
@@ -218,13 +201,13 @@ yarn run dev
 
 ### Contributing
 
-This app is mostly feature complete. I want to keep it simple and not add a bunch of bloat to it. And I want to avoid release churn. That said, there are a couple small features that might be worth adding. And there are a few minor bugs or points of cleanup that would be worth polishing. If you'd like to help check out the [Issue Tracker](https://github.com/szTheory/exifcleaner/issues) which contains an exhaustive list of known issues. Just pick one and submit a Pull Request or leave a comment and I can provide guidance or help if you need it. Make sure to test the app out to see if it still works though. There isn't much going on in this app so it should be easy enough to do. I might add some automated tests later on to help with this. For now it's just been me working on the app so manual testing has worked out fine.
+This app is mostly feature complete. I want to keep it simple and not add a bunch of bloat to it. And I want to avoid release churn. That said, there are a couple small features that might be worth adding. And there are a few minor bugs or points of cleanup that would be worth polishing. If you'd like to help check out the [Issue Tracker](https://github.com/xqk/exifcleaner/issues) which contains an exhaustive list of known issues. Just pick one and submit a Pull Request or leave a comment and I can provide guidance or help if you need it. Make sure to test the app out to see if it still works though. There isn't much going on in this app so it should be easy enough to do. I might add some automated tests later on to help with this. For now it's just been me working on the app so manual testing has worked out fine.
 
 TypeScript code is formatted using Prettier.
 
 ### Adding a Translation
 
-Adding a translation is easy. All you have to do is go to [the translation list](https://github.com/szTheory/exifcleaner/blob/master/.resources/strings.json), click on "Edit this file", and add an entry for the new language underneath the other ones. So for example if you wanted to add a Spanish translation, where it says:
+Adding a translation is easy. All you have to do is go to [the translation list](https://github.com/xqk/exifcleaner/blob/master/.resources/strings.json), click on "Edit this file", and add an entry for the new language underneath the other ones. So for example if you wanted to add a Spanish translation, where it says:
 
 ```json
 "empty.title": {
@@ -246,7 +229,7 @@ You just add a line for `"es"` (list of language codes [here](https://www.electr
 and repeat that pattern for each of the entries. That's probably the easiest way to contribute. If you want to be able to see all of your translations working in a live app before submitting, you can also do this:
 
 1. Fork the project on Github
-2. Follow the directions [here](https://github.com/szTheory/exifcleaner#run-the-app-in-dev-mode) to get ExifCleaner running in development mode on your computer
+2. Follow the directions [here](https://github.com/xqk/exifcleaner#run-the-app-in-dev-mode) to get ExifCleaner running in development mode on your computer
 3. Then update the `strings.json` file as mentioned above, and quit the program and relaunch it to see your changes. When you're finished, commit your changes from the command line with for example `git commit -am "Finished adding translations"`. Then run `git push origin master`, and go to the project URL your forked it to (for example <https://github.com/myusernamehere/exifcleaner>) and click the button to open a new Pull Request.
 
 If you want to run the app with a specific locale without changing your system preferences, use one of the following commands with the correct language code. If you don't see your language listed below, just follow the pattern and plug in your own language code [from this list](https://www.electronjs.org/docs/api/locales).
@@ -298,7 +281,7 @@ Bump the version with `release` (choose a "pre" release for point releases for t
 yarn run release
 ```
 
-Check the [Github release page](https://github.com/szTheory/exifcleaner/releases) and confirm a new draft release was created. Then run the publish command:
+Check the [Github release page](https://github.com/xqk/exifcleaner/releases) and confirm a new draft release was created. Then run the publish command:
 
 ```bash
 yarn run publish

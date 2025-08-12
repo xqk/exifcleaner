@@ -282,7 +282,12 @@ sub verify_successful_install {
 # rename it from `exiftool(-k).exe` to `exiftool.exe` and move
 # it to the ExifCleaner Windows bin dir.
 sub copy_windows_binary {
-  my $from_path = DOWNLOADS_WORKING_DIR . '/exiftool(-k).exe';
+  my $code_archive_filename = shift;
+
+  my ($code_dir_name) = $code_archive_filename =~ /^(.+)[.]zip$/;
+  my $from_dir = DOWNLOADS_WORKING_DIR . "/$code_dir_name";
+
+  my $from_path = $from_dir . '/exiftool(-k).exe';
   my $to_path   = BIN_DIR_WINDOWS . '/exiftool.exe';
 
   my @command = ( 'cp', $from_path, $to_path );
@@ -356,7 +361,7 @@ sub run {
 
   header('Moving fresh binaries');
   copy_unix_binary($code_filename);
-  copy_windows_binary();
+  copy_windows_binary($windows_version_filename);
 
   header('Clean up downloads working directory');
   if ($cache_downloads_working_dir) {

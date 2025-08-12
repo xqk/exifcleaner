@@ -5,8 +5,8 @@ import { showAboutWindow } from "./menu_app_about";
 import { openUrlMenuItem } from "./menu_item_open_url";
 import { i18n } from "./i18n";
 
-const WEBSITE_URL = "https://exifcleaner.com";
-const GITHUB_USERNAME = "szTheory";
+const WEBSITE_URL = "https://github.com/xqk/exifcleaner";
+const GITHUB_USERNAME = "xqk";
 const GITHUB_PROJECTNAME = "exifcleaner";
 const SOURCE_CODE_URL = `https://github.com/${GITHUB_USERNAME}/${GITHUB_PROJECTNAME}`;
 
