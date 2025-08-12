@@ -21,7 +21,7 @@
 		"packmactest": "yarn run compile && electron-builder --dir -c.compression=store -c.mac.identity=null",
 		"packwin": "yarn run compile && electron-builder --windows",
 		"packlinux": "yarn run compile && electron-builder --linux",
-		"packmac": "yarn run compile && PYTHON=$(which python3) electron-builder --macos -c.mac.identity=null",
+		"packmac": "yarn run compile && electron-builder --macos -c.mac.identity=null",
 		"build": "yarn run compile && electron-builder --macos --linux --windows",
 		"publish": "yarn run compile && electron-builder --macos --linux --windows -p always",
 		"release": "np",
