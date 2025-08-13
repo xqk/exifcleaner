@@ -4,9 +4,15 @@
 
 > Desktop app to clean metadata from images, videos, PDFs, and other files.
 
-## !!!!! NOTE - UPGRADE TO 3.6.0+ ASAP !!!!!
 
-If you are running a version of ExifCleaner before 3.6.0, upgrade immediately! A security vulnerability was found in exiftool, the command-line application that powers ExifCleaner under the hood, and this was updated in ExifCleaner 3.5.0. There was also an XSS and Electron remote shell vulnerability due to unsanitized HTML output that was fixed in ExifCleaner 3.6.0.
+Forked from [szTheory/exifcleaner](https://github.com/szTheory/exifcleaner)
+
+## NOTE
+
+- Node 15.0.1
+- export ELECTRON_MIRROR="https://mirrors.huaweicloud.com/electron/"
+- 把node_modules中dmg-builder中python路径改为本机自定义安装的python2.7的路径（因为 Mac 已废弃python2.7，找不到/usr/bin/python）
+- 运行update_exiftool.pl，里面的windows用代码里的exiftool/exiftool.exe，不要用官方，因为运行不了
 
 ## Drawbacks
 
@@ -161,12 +167,6 @@ sha512sum ExifCleaner-Setup-3.5.0.exe | cut -f1 -d\ | xxd -r -p | base64
 ## Development
 
 Built with [Electron](https://electronjs.org). Uses [node-exiftool](https://www.npmjs.com/package/node-exiftool) as a wrapper for [Exiftool](https://exiftool.org/) binaries. To see the current list of NPM dependencies, run:
-
-## tips
-
-- Node 15.0.1
-- export ELECTRON_MIRROR="https://mirrors.huaweicloud.com/electron/"
-- 把node_modules中dmg-builder中python路径改为本机自定义安装的python2.7的路径（因为 Mac 已废弃python2.7，找不到/usr/bin/python）
 
 ```bash
 yarn list --production
